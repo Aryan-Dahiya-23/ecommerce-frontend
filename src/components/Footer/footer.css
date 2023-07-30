@@ -78,10 +78,42 @@
     margin: .2% 0 0;
 }
 
-@media only screen and (max-width: 992px) {
+
+@media only screen and (max-width: 768px) {
+
+    .footer {
+        width: 90%;
+        flex-direction: column;
+    }
+
+    .contact {
+        margin: 10px 0 0;
+    }
+
+    .links {
+        margin: 10px 0 0;
+    }
+
+    .bottom-bar {
+        width: 90%;
+        margin: 50px auto 20px;
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    .bottom-bar-content {
+        flex-direction: column;
+    }
+
+    .bottom-bar-content img {
+        margin-top: 10px;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
 
     .container {
-        margin-bottom: 400px;
+        margin-bottom: 350px;
     }
 
     .footer {
