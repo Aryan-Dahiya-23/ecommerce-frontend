@@ -301,7 +301,7 @@
 
 @media only screen and (max-width: 768px) {
     .empty-container .empty-button button {
-        height: 50px;
+        height: 40px;
         font-size: small;
     }
 }
