@@ -81,6 +81,7 @@ h4 {
 
     .newsletter-info button[type="submit"] {
         padding: 7.5px 5px;
+        border-radius: 7.5%; 
         width: 100px;
     }
 
