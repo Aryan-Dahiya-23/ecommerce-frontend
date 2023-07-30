@@ -122,6 +122,11 @@
         margin-bottom: 12.5px;
     }
 
+      .availability button {
+        padding: auto;
+        font-size: x-small;
+    }
+
     .related-products {
         width: 92.5%;
         margin: 0px auto 25px;
