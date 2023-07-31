@@ -25,6 +25,10 @@ const HomePage = () => {
         }
     };
 
+      if (!products) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div>
             <Header />
