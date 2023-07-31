@@ -25,23 +25,21 @@ const HomePage = () => {
         }
     };
 
-      if (!products) {
-        return <div>Loading...</div>;
-    }
-
     return (
-        <div>
-            <Header />
-            <Banner />
-            <Category />
+    <div>
+        <Header />
+        <Banner />
+        <Category />
+        {!products ? (
+            <div>Loading...</div>
+        ) : (
             <Product products={products} />
-            {/* <Product /> */}
-            <Newsletter />
-            <Footer />
-        </div>
-    );
+        )}
+        <Newsletter />
+        <Footer />
+    </div>
+);
+
 }
 
 export default HomePage;
-
-
