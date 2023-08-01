@@ -19,6 +19,28 @@ const Cart = () => {
 
     const [loading, setLoading] = useState(false);
 
+     useEffect(() => {
+
+        const updateUser = async () => {
+            try {
+                const response = await fetch(`${process.env.REACT_APP_URL}/updateuser` , {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: user.email,
+                        updatedUser: user,
+                    }),
+                });
+            } catch (error) {
+                console.error('Error occurred while updating user', error);
+            }
+        };
+
+        updateUser();
+    }, [user]);
+
     useEffect(() => {
 
         if (loggedIn) {
