@@ -92,6 +92,15 @@ const Header = () => {
             } else {
                 console.log("Failed to fetch user profile");
             }
+
+              const cookies = document.cookie.split('; ');
+                const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
+                if (tokenCookie) {
+                    const token = tokenCookie.split('=')[1];
+                    console.log("Token from cookie:", token);
+                    // Do something with the token
+                }
+            
         } catch (error) {
             console.error("An error occurred while fetching user profile:", error);
         }
