@@ -169,6 +169,9 @@ const Header = () => {
     }, [prevScrollPos, visible]);
 
     const handleClick = () => {
+
+        document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+
         fetch(`${process.env.REACT_APP_URL}/logout`, {
             credentials: "include",
             method: "POST"
