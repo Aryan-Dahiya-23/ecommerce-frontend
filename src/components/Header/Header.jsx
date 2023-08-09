@@ -57,11 +57,31 @@ const Header = () => {
 
     }, [userEmail]);
 
+    // useEffect(() => {
+    //     fetch(`${process.env.REACT_APP_URL}/profile`, {
+    //         credentials: "include"
+    //     }).then(response => {
+    //         response.json().then(userInfo => {
+    //             if (userInfo.email) {
+    //                 const email = userInfo.email;
+    //                 setUserEmail(email);
+    //                 setLoggedIn(true);
+    //             } else {
+    //                 console.log("User verification failed");
+    //             }
+    //         });
+    //     });
+    // }, []);
+
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_URL}/profile`, {
-            credentials: "include"
-        }).then(response => {
-            response.json().then(userInfo => {
+    async function fetchUserProfile() {
+        try {
+            const response = await fetch(`${process.env.REACT_APP_URL}/profile`, {
+                credentials: "include"
+            });
+
+            if (response.ok) {
+                const userInfo = await response.json();
                 if (userInfo.email) {
                     const email = userInfo.email;
                     setUserEmail(email);
@@ -69,9 +89,17 @@ const Header = () => {
                 } else {
                     console.log("User verification failed");
                 }
-            });
-        });
-    }, []);
+            } else {
+                console.log("Failed to fetch user profile");
+            }
+        } catch (error) {
+            console.error("An error occurred while fetching user profile:", error);
+        }
+    }
+
+    fetchUserProfile();
+}, []);
+
 
     useEffect(() => {
 
