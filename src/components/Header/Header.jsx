@@ -73,41 +73,81 @@ const Header = () => {
     //     });
     // }, []);
 
-    useEffect(() => {
-    async function fetchUserProfile() {
-        try {
-            const response = await fetch(`${process.env.REACT_APP_URL}/profile`, {
-                credentials: "include"
-            });
+//     useEffect(() => {
+//     async function fetchUserProfile() {
+//         try {
+//             const response = await fetch(`${process.env.REACT_APP_URL}/profile`, {
+//                 credentials: "include"
+//             });
 
-            if (response.ok) {
-                const userInfo = await response.json();
-                if (userInfo.email) {
-                    const email = userInfo.email;
-                    setUserEmail(email);
-                    setLoggedIn(true);
-                } else {
-                    console.log("User verification failed");
-                }
-            } else {
-                console.log("Failed to fetch user profile");
-            }
+//             if (response.ok) {
+//                 const userInfo = await response.json();
+//                 if (userInfo.email) {
+//                     const email = userInfo.email;
+//                     setUserEmail(email);
+//                     setLoggedIn(true);
+//                 } else {
+//                     console.log("User verification failed");
+//                 }
+//             } else {
+//                 console.log("Failed to fetch user profile");
+//             }
 
-              const cookies = document.cookie.split('; ');
-                const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
-                if (tokenCookie) {
-                    const token = tokenCookie.split('=')[1];
-                    console.log("Token from cookie:", token);
-                    // Do something with the token
-                }
+//               const cookies = document.cookie.split('; ');
+//                 const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
+//                 if (tokenCookie) {
+//                     const token = tokenCookie.split('=')[1];
+//                     console.log("Token from cookie:", token);
+//                     // Do something with the token
+//                 }
             
-        } catch (error) {
-            console.error("An error occurred while fetching user profile:", error);
-        }
-    }
+//         } catch (error) {
+//             console.error("An error occurred while fetching user profile:", error);
+//         }
+//     }
 
-    fetchUserProfile();
-}, []);
+//     fetchUserProfile();
+// }, []);
+
+     useEffect(() => {
+        async function fetchUserProfile() {
+            try {
+                // Get the token from the cookie
+                const cookies = document.cookie.split('; ');
+                const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
+                let token = '';
+                if (tokenCookie) {
+                    token = tokenCookie.split('=')[1];
+                }
+
+                const response = await fetch(`${process.env.REACT_APP_URL}/profile`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` // Include the token in the Authorization header
+                    }
+                });
+
+                if (response.ok) {
+                    const userInfo = await response.json();
+                    console.log(userInfo);
+                    if (userInfo.email) {
+                        const email = userInfo.email;
+                        setUserEmail(email);
+                        setLoggedIn(true);
+                    } else {
+                        console.log("User verification failed");
+                    }
+                } else {
+                    console.log("Failed to fetch user profile");
+                }
+            } catch (error) {
+                console.error("An error occurred while fetching user profile:", error);
+            }
+        }
+
+        fetchUserProfile();
+    }, []);
 
 
     useEffect(() => {
