@@ -122,7 +122,7 @@ export default function SignIn() {
 
                 if (response.ok) {
                     const data = await response.json();
-                    console.log(data.user);
+                    // console.log(data.user);
                     setUser(data.user);
                 } else {
                     alert('Error occurred while fetching data');
