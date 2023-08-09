@@ -40,30 +40,71 @@ export default function SignIn() {
     const { user, setUser } = useContext(AuthContext);
     const [redirect, setRedirect] = useState(false);
 
+    function setCookie(name, value, days) {
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + days);
+
+    const cookieString = `${name}=${value}; expires=${expirationDate.toUTCString()}; path=/`;
+    document.cookie = cookieString;
+}
+    
     async function handleSubmit(event) {
-        event.preventDefault();
+    event.preventDefault();
 
-        const data = new FormData(event.currentTarget);
+    const data = new FormData(event.currentTarget);
 
-        const email = data.get('email');
-        const password = data.get('password');
+    const email = data.get('email');
+    const password = data.get('password');
 
-        const response = await fetch(`${process.env.REACT_APP_URL}/login`, {
-            method: 'POST',
-            body: JSON.stringify({ email, password }),
-            headers: { "Content-Type": "application/json" },
-            credentials: "include",
-        });
+    const response = await fetch(`${process.env.REACT_APP_URL}/login`, {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+    });
 
-        if (response.ok) {
-            // console.log(response);
-            setUserEmail(email);
-            setLoggedIn(true);
-            setRedirect(true);
-        } else {
-            alert('wrong credentials');
-        }
+    if (response.ok) {
+        const responseData = await response.json(); // Parse the response JSON
+        const token = responseData.token; // Assuming your API returns a "token" field
+
+        // Set the token as a cookie
+        setCookie('token', token, 7); // Set the token cookie to expire in 7 days
+
+        setUserEmail(email);
+        setLoggedIn(true);
+        setRedirect(true);
+    } else {
+        alert('Wrong credentials');
     }
+}
+
+// Function to set a cookie
+
+
+    // async function handleSubmit(event) {
+    //     event.preventDefault();
+
+    //     const data = new FormData(event.currentTarget);
+
+    //     const email = data.get('email');
+    //     const password = data.get('password');
+
+    //     const response = await fetch(`${process.env.REACT_APP_URL}/login`, {
+    //         method: 'POST',
+    //         body: JSON.stringify({ email, password }),
+    //         headers: { "Content-Type": "application/json" },
+    //         credentials: "include",
+    //     });
+
+    //     if (response.ok) {
+    //         // console.log(response);
+    //         setUserEmail(email);
+    //         setLoggedIn(true);
+    //         setRedirect(true);
+    //     } else {
+    //         alert('wrong credentials');
+    //     }
+    // }
 
     useEffect(() => {
         async function fetchData() {
