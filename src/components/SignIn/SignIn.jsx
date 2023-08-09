@@ -65,6 +65,7 @@ export default function SignIn() {
 
     if (response.ok) {
         const responseData = await response.json(); // Parse the response JSON
+        console.log(responseData);
         const token = responseData.token; // Assuming your API returns a "token" field
 
         // Set the token as a cookie
