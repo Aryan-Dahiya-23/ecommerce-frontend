@@ -42,6 +42,7 @@ const Header = () => {
 
                 if (response.ok) {
                     const data = await response.json();
+                    console.log("Fetching User Data");
                     setUser(data.user);
                 } else {
                     alert('Error occurred while fetching data');
