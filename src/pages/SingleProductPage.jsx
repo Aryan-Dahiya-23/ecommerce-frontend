@@ -64,7 +64,7 @@ const SingleProductPage = () => {
         <div>
             <Header />
 
-            {user && 
+            {Object.keys(user).length >== 0 && 
             <SingleProduct
                 imageUrl={product.imageUrl}
                 name={product.name}
