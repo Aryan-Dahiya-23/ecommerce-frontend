@@ -73,14 +73,7 @@ const SingleProductPage = () => {
              category={product.category}
             />}
 
-{/*             {loggedIn === false &&
-             <SingleProduct
-             imageUrl={product.imageUrl}
-             name={product.name}
-             price={product.price}
-             description={product.description}
-             category={product.category}
-            } */}
+            
             
             <div className="related-products">RELATED PRODUCTS</div>
             <Product products={additionalData} />
