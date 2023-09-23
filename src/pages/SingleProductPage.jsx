@@ -64,25 +64,26 @@ const SingleProductPage = () => {
         <div>
             <Header />
 
-            {loggedIn ? (
-    Object.keys(user).length > 0 && (
-        <SingleProduct
-            imageUrl={product.imageUrl}
-            name={product.name}
-            price={product.price}
-            description={product.description}
-            category={product.category}
-        />
-    )
-) : (
+            {loggedIn && Object.keys(user).length > 0 && 
     <SingleProduct
         imageUrl={product.imageUrl}
         name={product.name}
         price={product.price}
         description={product.description}
         category={product.category}
-    />
-)}
+    />}
+
+            {!loggedIn && Object.keys(user).length === 0 && 
+           <SingleProduct
+            imageUrl={product.imageUrl}
+            name={product.name}
+            price={product.price}
+            description={product.description}
+            category={product.category}
+           />}
+
+
+          
             <div className="related-products">RELATED PRODUCTS</div>
             <Product products={additionalData} />
             <Newsletter />
