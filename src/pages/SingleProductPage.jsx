@@ -10,6 +10,7 @@ import Footer from "components/Footer/Footer";
 const SingleProductPage = () => {
     const { id } = useParams();
 
+    const{ user, setUser } = useContext(AuthContext);
     const { currentId, setCurrentId } = useContext(AuthContext);
     const [product, setProduct] = useState({});
     const [additionalData, setAdditionalData] = useState(null);
@@ -62,13 +63,25 @@ const SingleProductPage = () => {
     return (
         <div>
             <Header />
+            
+            {loggedIn && Object.keys(user).length > 0 && 
             <SingleProduct
              imageUrl={product.imageUrl}
              name={product.name}
              price={product.price}
              description={product.description}
              category={product.category}
-            />
+            />}
+
+            {loggedIn === false &&
+             <SingleProduct
+             imageUrl={product.imageUrl}
+             name={product.name}
+             price={product.price}
+             description={product.description}
+             category={product.category}
+            }
+            
             <div className="related-products">RELATED PRODUCTS</div>
             <Product products={additionalData} />
             <Newsletter />
