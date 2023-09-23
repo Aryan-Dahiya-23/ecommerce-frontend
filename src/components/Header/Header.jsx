@@ -52,7 +52,7 @@ const Header = () => {
             }
         }
 
-        if (userEmail) {
+        if (userEmail && !user) {
             fetchData();
         }
 
