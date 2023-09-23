@@ -9,6 +9,7 @@ const Wishlist = () => {
     const [wishlistProducts, setWishlistProducts] = useState([]);
 
     useEffect(() => {
+        console.log("filtering wishlist");
         const filteredProducts = products.filter(product =>
             user.wishlist.includes(product._id)
         );
