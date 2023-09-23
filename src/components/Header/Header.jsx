@@ -54,12 +54,13 @@ const Header = () => {
             }
         }
 
-        if (!user) {
+       if (Object.keys(user).length === 0) {
             console.log("fetching User");
             fetchData();
-        }else{
-            console.log("Not fetching");
-        }
+      } else {
+           console.log("Not fetching");
+      }
+
 
     }, [userEmail]);
 
