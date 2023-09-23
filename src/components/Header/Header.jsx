@@ -54,7 +54,7 @@ const Header = () => {
             }
         }
 
-        if (userEmail) {
+        if (!user) {
             console.log("fetching User");
             fetchData();
         }else{
