@@ -54,7 +54,7 @@ const Header = () => {
             }
         }
 
-       if (Object.keys(user).length === 0) {
+       if (userEmail && Object.keys(user).length === 0) {
             console.log("fetching User");
             fetchData();
       } else {
