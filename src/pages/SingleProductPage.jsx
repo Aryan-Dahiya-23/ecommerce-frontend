@@ -11,6 +11,7 @@ const SingleProductPage = () => {
     const { id } = useParams();
 
     const{ user, setUser } = useContext(AuthContext);
+    const {products, setProducts } = useContext(AuthContext);
     const {loggedIn, setLoggedIn} = useContext(AuthContext);
     const { currentId, setCurrentId } = useContext(AuthContext);
     const [product, setProduct] = useState({});
@@ -38,6 +39,9 @@ const SingleProductPage = () => {
             try {
                 const response = await fetch(URL2);
                 const data = await response.json();
+                if(products.length === 0){
+                    setProducts(data);
+                }
                 const filteredData = data.filter(
                     (item) => item.category === category && item._id !== id
                 );
