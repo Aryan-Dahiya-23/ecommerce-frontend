@@ -30,6 +30,8 @@ const Header = () => {
 
     useEffect(() => {
 
+        console.log("Inside fetching User");
+
         async function fetchData() {
             try {
                 const response = await fetch(`${process.env.REACT_APP_URL}/user?email=${userEmail}`, {
@@ -54,6 +56,8 @@ const Header = () => {
 
         if (userEmail && !user) {
             fetchData();
+        }else{
+            console.log("Not fetching");
         }
 
     }, [userEmail]);
