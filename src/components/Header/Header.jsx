@@ -24,9 +24,26 @@ const Header = () => {
     const { cart, setCart } = useContext(AuthContext);
     const { userEmail, setUserEmail } = useContext(AuthContext);
     const { user, setUser } = useContext(AuthContext);
+    const { products, setProducts } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const showSidebar = () => setSidebar(!sidebar);
+
+    useEffect(() => {
+        if(products.length === 0)
+        fetchProducts();
+    }, []);
+
+    const fetchProducts = async () => {
+        try {
+            const response = await fetch(`${process.env.REACT_APP_URL}/products`);
+            const data = await response.json();
+            setProducts(data);
+        } catch (error) {
+            console.log("Error fetching products:", error);
+        }
+    };
+
 
     useEffect(() => {
 
