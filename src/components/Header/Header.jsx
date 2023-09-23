@@ -55,13 +55,8 @@ const Header = () => {
         }
 
        if (userEmail && Object.keys(user).length === 0) {
-            console.log("fetching User");
             fetchData();
-      } else {
-           console.log("Not fetching");
       }
-
-
     }, [userEmail]);
 
     // useEffect(() => {
