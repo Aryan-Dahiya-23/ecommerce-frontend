@@ -11,7 +11,7 @@ const SingleProductPage = () => {
     const { id } = useParams();
 
     const{ user, setUser } = useContext(AuthContext);
-    const {loggedIn. setLoggedIn} = useContext(AuthContext);
+    const {loggedIn, setLoggedIn} = useContext(AuthContext);
     const { currentId, setCurrentId } = useContext(AuthContext);
     const [product, setProduct] = useState({});
     const [additionalData, setAdditionalData] = useState(null);
