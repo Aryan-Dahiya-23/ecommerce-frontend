@@ -209,6 +209,7 @@ const Header = () => {
         if (!loggedIn)
             return alert("Login First!");
 
+        console.log("wishlist: " + wishlist);
         setWishlist(true)
     }
 
