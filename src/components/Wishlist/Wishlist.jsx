@@ -5,7 +5,7 @@ import '../Wishlist/wishlist.css';
 import { AuthContext } from '../../contexts/AuthContext.jsx';
 
 const Wishlist = () => {
-    const { user, products, setWishlist } = useContext(AuthContext);
+    const { user, products, wishlist, setWishlist } = useContext(AuthContext);
     const [wishlistProducts, setWishlistProducts] = useState([]);
 
     useEffect(() => {
@@ -13,7 +13,7 @@ const Wishlist = () => {
             user.wishlist.includes(product._id)
         );
         setWishlistProducts(filteredProducts);
-    }, [user, products]);
+    }, [user, products, wishlist]);
 
     const handleClick = () => {
         setWishlist(false);
