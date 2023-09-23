@@ -11,6 +11,7 @@ const SingleProductPage = () => {
     const { id } = useParams();
 
     const { currentId, setCurrentId } = useContext(AuthContext);
+    const { user, setUser } = useContext(AuthContext);
     const [product, setProduct] = useState({});
     const [additionalData, setAdditionalData] = useState(null);
 
@@ -62,13 +63,15 @@ const SingleProductPage = () => {
     return (
         <div>
             <Header />
+
+            {user && 
             <SingleProduct
                 imageUrl={product.imageUrl}
                 name={product.name}
                 price={product.price}
                 description={product.description}
                 category={product.category}
-            />
+            />}
             <div className="related-products">RELATED PRODUCTS</div>
             <Product products={additionalData} />
             <Newsletter />
