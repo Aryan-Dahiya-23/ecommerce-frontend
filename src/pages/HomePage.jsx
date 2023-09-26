@@ -30,7 +30,7 @@ const HomePage = () => {
         <Header />
         <Banner />
         <Category />
-        {!products ? (
+        {products.length === 0 ? (
             <div>Loading...</div>
         ) : (
             <Product products={products} />
