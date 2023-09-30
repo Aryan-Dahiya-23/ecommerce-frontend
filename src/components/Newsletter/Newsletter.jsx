@@ -68,14 +68,14 @@ const Newsletter = () => {
                     </a>
                   </div> */}
 
-                  <div className="icon" style={{ marginRight: "0px" }}>
+{/*                   <div className="icon" style={{ marginRight: "0px" }}>
                     <a
                       href="https://www.linkedin.com/in/aryan-dahiya-a72320249?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                       style={{ textDecoration: 'none', color: 'inherit' }}
                     >
                        <FaLinkedinIn size={14} />
                     </a>
-                 </div>
+                 </div> */}
 
                 </span>
 
