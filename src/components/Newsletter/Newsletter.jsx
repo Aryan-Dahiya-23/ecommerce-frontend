@@ -9,7 +9,7 @@ import {
 const Newsletter = () => {
 
     function redirectToSocialMedia(link) {
-    window.open(link, '_blank', 'noopener noreferrer');
+    window.open(link);
     }
     
     return (
