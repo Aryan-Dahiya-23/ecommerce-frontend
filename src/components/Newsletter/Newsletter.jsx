@@ -53,7 +53,7 @@ const Newsletter = () => {
     </a>
 </div>
 
-<div className="icon">
+<div className="icon" style={{marginRight: "0px"}}>
     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
         <FaInstagram size={14} />
     </a>
