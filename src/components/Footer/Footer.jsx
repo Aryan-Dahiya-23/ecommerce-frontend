@@ -38,7 +38,7 @@ const Footer = () => {
 
                     <div className="c-item">
                         <FaEnvelope />
-                        <div className="text">Email: store@jsdev.com</div>
+                        <div className="text">Email: store@addev.com</div>
                     </div>
 
                 </div>
@@ -72,7 +72,7 @@ const Footer = () => {
             <div className="bottom-bar">
                 <div className="bottom-bar-content">
                     <span className="text">
-                        JSDEVSTORE 2022 CREATED BY JS DEV. PREMIUM E-COMMERCE
+                        AUDIOVERSE 2022 CREATED BY AD DEV. PREMIUM E-COMMERCE
                         SOLUTIONS.
                     </span>
                     <img src={Payment} alt="Payment" />
