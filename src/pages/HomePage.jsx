@@ -32,11 +32,13 @@ const HomePage = () => {
         <Banner />
         <Category />
 
-        {products.length === 0 ? (
+{/*         {products.length === 0 ? (
             <LoadingIndicator />
         ) : (
             <Product products={products} />
-        )}
+        )} */}
+
+            <LoadingIndicator />
             
         <Newsletter />
         <Footer />
