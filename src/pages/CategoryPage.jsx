@@ -5,6 +5,7 @@ import Header from "components/Header/Header";
 import Product from "components/Product/Product";
 import Newsletter from "components/Newsletter/Newsletter";
 import Footer from "components/Footer/Footer";
+import LoadingIndicator from "components/UI/LoadingIndicator.jsx";
 
 const CategoryPage = () => {
     const { category } = useParams();
@@ -34,7 +35,13 @@ const CategoryPage = () => {
         <div>
             <Header />
             <div className="category-title">{category}</div>
-            <Product products={products} />
+
+            {products.length === 0 ? (
+                <LoadingIndicator />
+            ) : (
+                <Product products={products} />
+            )}
+
             <Newsletter />
             <Footer />
         </div>

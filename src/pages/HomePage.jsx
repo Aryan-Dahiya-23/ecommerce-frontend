@@ -5,6 +5,7 @@ import Category from "components/Category/Category";
 import Product from "components/Product/Product";
 import Newsletter from "components/Newsletter/Newsletter";
 import Footer from "components/Footer/Footer";
+import LoadingIndicator from "components/UI/LoadingIndicator.jsx";
 import { AuthContext } from "../contexts/AuthContext.jsx";
 
 const HomePage = () => {
@@ -30,11 +31,13 @@ const HomePage = () => {
         <Header />
         <Banner />
         <Category />
+
         {products.length === 0 ? (
-            <div>Loading...</div>
+            <LoadingIndicator />
         ) : (
             <Product products={products} />
         )}
+            
         <Newsletter />
         <Footer />
     </div>

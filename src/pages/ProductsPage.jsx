@@ -3,6 +3,7 @@ import Header from "components/Header/Header";
 import Product from "components/Product/Product";
 import Newsletter from "components/Newsletter/Newsletter";
 import Footer from "components/Footer/Footer";
+import LoadingIndicator from "components/UI/LoadingIndicator.jsx";
 import { AuthContext } from "../contexts/AuthContext.jsx";
 
 
@@ -15,7 +16,7 @@ const ProductsPage = () => {
         scrollToTop();
     }, []);
 
-     const fetchProducts = async () => {
+    const fetchProducts = async () => {
         try {
             const response = await fetch(`${process.env.REACT_APP_URL}/products`);
             const data = await response.json();
@@ -35,11 +36,12 @@ const ProductsPage = () => {
             <Header />
             <div className="related-products" style={{ fontWeight: 'bold', fontSize: "1.5rem" }}>PRODUCTS</div>
 
-            {!products ? (
-                <div>Loading...</div>
+            {products.length === 0 ? (
+                <LoadingIndicator />
             ) : (
                 <Product products={products} />
             )}
+            
             <Newsletter />
             <Footer />
         </div>
