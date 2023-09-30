@@ -25,7 +25,7 @@ const Newsletter = () => {
 
                 <span className="social-icons">
 
-{/*                  <div className="icon" style={{marginLeft: "0px"}}>
+                 <div className="icon" style={{marginLeft: "0px"}}>
                         <FaFacebookF size={14} />
                     </div>
 
@@ -39,9 +39,9 @@ const Newsletter = () => {
 
                     <div className="icon" style={{marginRight: "0px"}}>
                         <FaLinkedinIn size={14} />
-                    </div> */}
+                    </div>
 
-                      <div className="icon" style={{ marginLeft: "0px" }}>
+{/*                       <div className="icon" style={{ marginLeft: "0px" }}>
                         <a
                            href="https://www.facebook.com/profile.php?id=100010911464728&mibextid=LQQJ4d"
                            style={{ textDecoration: 'none', color: 'inherit' }}
@@ -66,7 +66,7 @@ const Newsletter = () => {
                     >
                        <FaInstagram size={14} />
                     </a>
-                  </div>
+                  </div> */}
 
                   <div className="icon" style={{ marginRight: "0px" }}>
                     <a
