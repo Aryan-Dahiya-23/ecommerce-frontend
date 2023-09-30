@@ -25,8 +25,10 @@ const Newsletter = () => {
 
                 <span className="social-icons">
 
-{/*                     <div className="icon" style={{marginLeft: "0px"}}>
-                        <FaFacebookF size={14} />
+                    <div className="icon" style={{marginLeft: "0px"}}>
+                        <a href="/products">
+                           <FaFacebookF size={14} />
+                        </a>
                     </div>
 
                     <div className="icon">
@@ -39,25 +41,7 @@ const Newsletter = () => {
 
                     <div className="icon" style={{marginRight: "0px"}}>
                         <FaLinkedinIn size={14} />
-                    </div> */}
-
-                    <div className="icon" style={{ marginLeft: "0px" }}>
-    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-        <FaFacebookF size={14} />
-    </a>
-</div>
-
-<div className="icon">
-    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-        <FaTwitter size={14} />
-    </a>
-</div>
-
-<div className="icon" style={{marginRight: "0px"}}>
-    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-        <FaInstagram size={14} />
-    </a>
-</div>
+                    </div>
 
 
                 </span>
