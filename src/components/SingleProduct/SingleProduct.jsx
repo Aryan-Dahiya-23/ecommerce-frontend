@@ -110,11 +110,11 @@ const SingleProduct = (props) => {
                         };
                     } else {
                         alert("Item Removed From the Cart");
-                        return null; // Skip the item by returning null (to be filtered out later)
+                        return null;
                     }
                 }
                 return item;
-            }).filter(Boolean); // Filter out null/undefined items
+            }).filter(Boolean);
 
             const updatedUser = { ...user, cart: updatedCart };
             setUser(updatedUser);

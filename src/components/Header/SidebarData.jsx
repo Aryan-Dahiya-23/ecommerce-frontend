@@ -21,7 +21,7 @@ export const SidebarData = [
         cName: 'nav-text'
     },
     {
-        title: 'My Orders',
+        title: 'Orders',
         path: '/orders',
         icon: <AiOutlineCodeSandbox />,
         cName: 'nav-text'

@@ -220,7 +220,7 @@ const Header = () => {
 
     const filteredSidebarData = loggedIn
         ? SidebarData.filter(item => item.title !== "Sign In" && item.title !== "Sign Up")
-        : SidebarData.filter(item => item.title !== "Sign Out" && item.title !== "My Orders" );
+        : SidebarData.filter(item => item.title !== "Sign Out" && item.title !== "Orders" );
 
     return (
         <>
