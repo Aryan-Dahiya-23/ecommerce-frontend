@@ -16,9 +16,9 @@ const OrderItems = (props) => {
         return description;
     };
 
-    const getItem = (id) => {
-        navigate("product/" + id);
-    }
+   const getItem = (id) => {
+      navigate("/product/" + id);
+   }
 
     return (
         <div className="order-item-container">
