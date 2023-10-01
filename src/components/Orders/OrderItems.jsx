@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import "../Orders/orders.css";
 
 import { Link } from "react-router-dom";
 
 const OrderItems = (props) => {
+
+    const navigate = useNavigate();
 
     const { orderDate, totalAmount, shipTo, orderId, productDetails } = props;
 
@@ -12,6 +15,10 @@ const OrderItems = (props) => {
         }
         return description;
     };
+
+    const getItem = (id) => {
+        navigate("product/:id");
+    }
 
     return (
         <div className="order-item-container">
@@ -46,11 +53,11 @@ const OrderItems = (props) => {
             <div className="order-item-bottom">
 
 
-                {props.productDetails.map((product, index) => (
+                {productDetails.map((product, index) => (
 
                     <div className="order-item-bottom-container">
 
-                        <div className="order-item-details">
+                        <div className="order-item-details" onClick={() => getItem(product._id)}>
                             <img src={"https://ecommerce-backend-4zjj.onrender.com/" + product.imageUrl} alt="Product" />
 
                             <div className="item-details-description">
