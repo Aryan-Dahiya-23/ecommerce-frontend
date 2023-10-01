@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "contexts/AuthContext";
 import OrderItems from "./OrderItems";
 
@@ -14,7 +15,7 @@ const Orders = () => {
 
     return (
         <div className="orders-container">
-            {orders.length === 0 && <div style={{ margin: "auto", fontFamily: "Roboto", fontSize: "2rem", fontWeight: "bolder" }}>No Order Yet</div>}
+            {orders.length === 0 && <Link to="/" style={{ margin: "auto", fontFamily: "Roboto", fontSize: "2rem", fontWeight: "bolder" }}>No Order Yet</Link>}
 
             {orders.map((order, index) => (
                 <OrderItems
