@@ -126,7 +126,7 @@ const Header = () => {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}` // Include the token in the Authorization header
+                        'Authorization': `Bearer ${token}`
                     }
                 });
 
@@ -196,7 +196,7 @@ const Header = () => {
                 return response.text(); 
             })
             .then((data) => {
-                console.log('Backend Response:', data); // Should log "it is working"
+                console.log('Backend Response:', data);
             })
             .catch((error) => {
                 console.error('Error during search:', error);
@@ -214,16 +214,13 @@ const Header = () => {
     }
 
     const handleCart = () => {
-        // if (!loggedIn)
-        //     return alert("Login First!");
-
         setCart(true);
         console.log("cart: " + cart);
     }
 
     const filteredSidebarData = loggedIn
         ? SidebarData.filter(item => item.title !== "Sign In" && item.title !== "Sign Up")
-        : SidebarData.filter(item => item.title !== "Sign Out");
+        : SidebarData.filter(item => item.title !== "Sign Out" && item.title !== "My Orders" );
 
     return (
         <>
@@ -257,6 +254,7 @@ const Header = () => {
                                 <AiIcons.AiOutlineClose />
                             </Link>
                         </li>
+
                         {filteredSidebarData.map((item, index) => {
                             if (item.title === 'Sign Out') {
                                 return (
@@ -287,9 +285,3 @@ const Header = () => {
 }
 
 export default Header;
-
-
-
-// 5 4 8
-// 2 5 7
-//     5 

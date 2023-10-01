@@ -5,12 +5,25 @@ import * as IoIcons from 'react-icons/io';
 import LoginIcon from '@mui/icons-material/Login';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { AiOutlineCodeSandbox } from 'react-icons/ai';
 
 export const SidebarData = [
     {
         title: 'Home',
         path: '/',
         icon: <AiIcons.AiFillHome />,
+        cName: 'nav-text'
+    },
+    {
+        title: 'Products',
+        path: '/products',
+        icon: <FaIcons.FaCartPlus />,
+        cName: 'nav-text'
+    },
+    {
+        title: 'My Orders',
+        path: '/orders',
+        icon: <AiOutlineCodeSandbox />,
         cName: 'nav-text'
     },
     {
@@ -29,12 +42,6 @@ export const SidebarData = [
         title: 'Sign Out',
         path: '/',
         icon: <LogoutIcon />,
-        cName: 'nav-text'
-    },
-    {
-        title: 'Products',
-        path: '/products',
-        icon: <FaIcons.FaCartPlus />,
         cName: 'nav-text'
     },
     {

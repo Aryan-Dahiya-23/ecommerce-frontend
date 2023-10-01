@@ -25,7 +25,7 @@ const Newsletter = () => {
 
                 <span className="social-icons">
 
-                    <div className="icon" style={{marginLeft: "0px"}}>
+                    <div className="icon" style={{ marginLeft: "0px" }}>
                         <FaFacebookF size={14} />
                     </div>
 
@@ -37,7 +37,7 @@ const Newsletter = () => {
                         <FaInstagram size={14} />
                     </div>
 
-                    <div className="icon" style={{marginRight: "0px"}}>
+                    <div className="icon" style={{ marginRight: "0px" }}>
                         <FaLinkedinIn size={14} />
                     </div>
 

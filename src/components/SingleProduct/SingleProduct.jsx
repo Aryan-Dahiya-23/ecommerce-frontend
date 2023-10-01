@@ -163,7 +163,7 @@ const SingleProduct = (props) => {
 
             <div className="singleProductDetails">
                 <div className="title">{props.name}</div>
-                <div className="price">{props.price}</div>
+                <div className="price">₹ {props.price}</div>
                 <div className="description">{props.description}</div>
 
                 <div className="availability">

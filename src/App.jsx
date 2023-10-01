@@ -6,6 +6,7 @@ import ProductsPage from "pages/ProductsPage";
 import SignInPage from "pages/SignInPage";
 import SignUpPage from "pages/SignUpPage";
 import SingleProductPage from "pages/SingleProductPage";
+import OrdersPage from 'pages/OrdersPage';
 import SuccessfulPage from 'pages/SuccessfulPage';
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/product/:id" element={<SingleProductPage />} />
+          <Route path="/orders" element={<OrdersPage />} />
           <Route path="/success" element={<SuccessfulPage />} />
         </Routes>
       </BrowserRouter>
