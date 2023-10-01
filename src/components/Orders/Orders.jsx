@@ -23,7 +23,7 @@ const Orders = () => {
                     orderId={order.orderId}
                     orderDate={order.orderDate}
                     totalAmount={order.totalAmount}
-                    shipTo={user.name}
+                    shipTo={user.fName + " " + user.lName}
                     productDetails={order.productDetails}
                 />
             ))}
