@@ -26,9 +26,7 @@ const Successful = () => {
         <h1>Payment Successful!</h1>
         <p>Thank you for your purchase.</p>
         <p>Order ID: ABC123XYZ</p>
-        {/* Text indicating redirect and countdown timer */}
         <p>Redirecting to home page in <h7 className="countdown">{countdown} </h7> seconds...</p>
-
       </div>
     </div>
   );

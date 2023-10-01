@@ -1,4 +1,4 @@
-import React, {useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import Header from "components/Header/Header";
 import Banner from "components/Banner/Banner";
 import Category from "components/Category/Category";
@@ -9,6 +9,8 @@ import LoadingIndicator from "components/UI/LoadingIndicator.jsx";
 import { AuthContext } from "../contexts/AuthContext.jsx";
 
 const HomePage = () => {
+
+    console.log(process.env.REACT_APP_URL);
 
     const { products, setProducts } = useContext(AuthContext);
 
@@ -27,22 +29,24 @@ const HomePage = () => {
     };
 
     return (
-    <div>
-        <Header />
-        <Banner />
-        <Category />
+        <div>
+            <Header />
+            <Banner />
+            <Category />
 
-        {products.length === 0 ? (
-            <LoadingIndicator />
-        ) : (
-            <Product products={products} />
-        )}
-            
-        <Newsletter />
-        <Footer />
-    </div>
-);
+            {products.length === 0 ? (
+                <LoadingIndicator />
+            ) : (
+                <Product products={products} />
+            )}
+
+            <Newsletter />
+            <Footer />
+        </div>
+    );
 
 }
 
 export default HomePage;
+
+
