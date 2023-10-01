@@ -17,7 +17,7 @@ const OrderItems = (props) => {
     };
 
     const getItem = (id) => {
-        navigate("product/:id");
+        navigate("product/" + id);
     }
 
     return (
