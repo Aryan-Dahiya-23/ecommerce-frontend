@@ -14,7 +14,7 @@ const OrdersPage = () => {
         <div>
             <Header />
 
-            { Object.keys(user).length === 0 ?
+            { Object.keys(user).length > 0 ?
                 <Orders />
                 :
                 <LoadingIndicator />
