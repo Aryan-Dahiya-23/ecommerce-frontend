@@ -110,7 +110,7 @@ const Cart = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ user: user, subtotal: subtotal }),
+                body: JSON.stringify({  userId: user.id, subtotal: subtotal }),
             });
 
             const data = await response.json();
