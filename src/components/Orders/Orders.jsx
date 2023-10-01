@@ -15,7 +15,7 @@ const Orders = () => {
 
     return (
         <div className="orders-container">
-            {orders.length === 0 && <Link to="/" style={{ margin: "auto", fontFamily: "Roboto", fontSize: "2rem", fontWeight: "bolder" }}>No Orders Yet</Link>}
+            {orders.length === 0 && <Link to="/" style={{ margin: "auto", fontFamily: "Roboto", fontSize: "2rem", fontWeight: "bolder", color: "#8e2de2" }}>No Orders Yet</Link>}
 
             {orders.map((order, index) => (
                 <OrderItems
