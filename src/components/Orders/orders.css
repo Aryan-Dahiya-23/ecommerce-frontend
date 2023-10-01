@@ -82,6 +82,7 @@
     flex-direction: row;
     align-self: flex-start;
     max-width: 80%;
+    cursor: pointer;
 }
 
 .order-item-details img {
