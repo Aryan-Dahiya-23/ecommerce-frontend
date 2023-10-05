@@ -47,22 +47,22 @@ const Footer = () => {
 
                     <div className="categories">
                         <div className="title">Categories</div>
-                        <span className="text">Headphones</span>
-                        <span className="text">Smart Watches</span>
-                        <span className="text">Bluetooth Speakers</span>
-                        <span className="text">Wireless Earbuds</span>
-                        <span className="text">Home Theatre</span>
-                        <span className="text">Projectors</span>
+                        <div className="text">Headphones</div>
+                        <div className="text">Smart Watches</div>
+                        <div className="text">Bluetooth Speakers</div>
+                        <div className="text">Wireless Earbuds</div>
+                        <div className="text">Home Theatre</div>
+                        <div className="text">Projectors</div>
                     </div>
 
                     <div className="pages">
                         <div className="title">Pages</div>
-                        <span className="text">Home</span>
-                        <span className="text">About</span>
-                        <span className="text">Privacy Policy</span>
-                        <span className="text">Returns</span>
-                        <span className="text">Terms & Conditions</span>
-                        <span className="text">Contact Us</span>
+                        <div className="text">Home</div>
+                        <div className="text">About</div>
+                        <div className="text">Privacy Policy</div>
+                        <div className="text">Returns</div>
+                        <div className="text">Terms & Conditions</div>
+                        <div className="text">Contact Us</div>
                     </div>
 
                 </div>
