@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext.jsx";
 import Header from "components/Header/Header";
 import Product from "components/Product/Product";
@@ -10,10 +10,15 @@ import LoadingIndicator from "components/UI/LoadingIndicator.jsx";
 const CategoryPage = () => {
     const { category } = useParams();
     const [products, setProducts] = useState([]);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scroll(0, 0);
+      }, [pathname])
 
     useEffect(() => {
         fetchProducts();
-        scrollToTop();
+        // scrollToTop();
     }, []);
 
     const fetchProducts = async () => {
