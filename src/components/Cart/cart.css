@@ -17,7 +17,8 @@
     width: 20%;
     height: 100%;
     background-color: #ffffff;
-    z-index: 9999;
+    z-index: 1000;
+/*     z-index: 9999; */
     /* display: flex; */
     animation: slideLeft 0.5s forwards;
 }
