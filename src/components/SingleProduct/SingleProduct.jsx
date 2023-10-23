@@ -98,7 +98,7 @@ const SingleProduct = (props) => {
                 cart: [...user.cart, newCartItem],
             };
             setUser(updatedUser);
-            toast.success("Item Added To The Cart");
+            toast.success("IteAdded To The Cart");
         } else {
             const updatedCart = user.cart.map((item) => {
                 if (item._id === currentId) {
