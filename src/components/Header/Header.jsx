@@ -13,6 +13,8 @@ import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
 import "../Header/header.css";
 
+import { toast } from "react-toastify";
+
 const Header = () => {
 
     const [sidebar, setSidebar] = useState(false);
@@ -47,10 +49,10 @@ const Header = () => {
                     console.log("Fetching User Data");
                     setUser(data.user);
                 } else {
-                    alert('Error occurred while fetching data');
+                    toast.error('Error occurred while fetching data');
                 }
             } catch (error) {
-                alert('Error occurred while fetching data');
+                toast.error('Error occurred while fetching data');
             }
         }
 
@@ -58,58 +60,6 @@ const Header = () => {
             fetchData();
       }
     }, [userEmail]);
-
-    // useEffect(() => {
-    //     fetch(`${process.env.REACT_APP_URL}/profile`, {
-    //         credentials: "include"
-    //     }).then(response => {
-    //         response.json().then(userInfo => {
-    //             if (userInfo.email) {
-    //                 const email = userInfo.email;
-    //                 setUserEmail(email);
-    //                 setLoggedIn(true);
-    //             } else {
-    //                 console.log("User verification failed");
-    //             }
-    //         });
-    //     });
-    // }, []);
-
-//     useEffect(() => {
-//     async function fetchUserProfile() {
-//         try {
-//             const response = await fetch(`${process.env.REACT_APP_URL}/profile`, {
-//                 credentials: "include"
-//             });
-
-//             if (response.ok) {
-//                 const userInfo = await response.json();
-//                 if (userInfo.email) {
-//                     const email = userInfo.email;
-//                     setUserEmail(email);
-//                     setLoggedIn(true);
-//                 } else {
-//                     console.log("User verification failed");
-//                 }
-//             } else {
-//                 console.log("Failed to fetch user profile");
-//             }
-
-//               const cookies = document.cookie.split('; ');
-//                 const tokenCookie = cookies.find(cookie => cookie.startsWith('token='));
-//                 if (tokenCookie) {
-//                     const token = tokenCookie.split('=')[1];
-//                     console.log("Token from cookie:", token);
-//                     // Do something with the token
-//                 }
-            
-//         } catch (error) {
-//             console.error("An error occurred while fetching user profile:", error);
-//         }
-//     }
-
-//     fetchUserProfile();
-// }, []);
 
      useEffect(() => {
         async function fetchUserProfile() {
@@ -179,6 +129,7 @@ const Header = () => {
             method: "POST"
         })
             .then(() => {
+                toast.success("You've been successfully logged out.");
                 setLoggedIn(false);
                 setUserEmail("");
                 setUser({});
@@ -207,7 +158,7 @@ const Header = () => {
 
     const handleWishlist = () => {
         if (!loggedIn)
-            return alert("Login First!");
+            return toast.error("Please Login First!");
 
         console.log("wishlist: " + wishlist);
         setWishlist(true)

@@ -5,6 +5,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import CloseIcon from '@mui/icons-material/Close';
 import { BsCartX } from "react-icons/bs";
 import "../Cart/cart.css";
+import { toast } from "react-toastify";
 
 const Cart = () => {
 
@@ -84,13 +85,16 @@ const Cart = () => {
     };
 
     const increaseQuantity = (productId) => {
+        toast.success("Cart Updated");
         updateCartItem(productId, 1);
     };
 
     const decreaseQuantity = (productId, productQuantity) => {
         if (productQuantity === 1) {
+            toast.success("Item Removed From the Cart");
             removeItem(productId);
         } else {
+            toast.success("Cart Updated");
             updateCartItem(productId, -1);
         }
     };
@@ -104,6 +108,8 @@ const Cart = () => {
     const handleCheckout = async () => {
         setLoading(true);
 
+        toast.success("Initiating Checkout");
+
         try {
             const response = await fetch(`${process.env.REACT_APP_URL}/create-checkout-session` , {
                 method: 'POST',
@@ -114,7 +120,6 @@ const Cart = () => {
             });
 
             const data = await response.json();
-            console.log(data.session);
             const { url } = data.session;
 
             window.location.href = url;
@@ -169,8 +174,6 @@ const Cart = () => {
                             </div>
 
                             <div className="cart-checkout">
-                                {/* <button onClick={handleCheckout}>Checkout</button> */}
-
                                 <button onClick={handleCheckout} disabled={loading}>
                                     {loading ? 'Processing...' : 'Checkout'}
                                 </button>

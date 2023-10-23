@@ -12,10 +12,7 @@ const Footer = () => {
                 <div className="about">
 
                     <div className="title">About</div>
-                    <div className="text"> Voluptatem accusantium doloremque laudantium, totam rem
-                        aperiam, eaque ipsa quae ab illo inventore veritatis et
-                        quasi architecto beatae vitae dicta sunt explicabo eaque
-                        ipsa quae ab illo.</div>
+                    <div className="text">"At AudioVerse, we're passionate about sound. Our mission is to provide audio enthusiasts with top-tier products that enhance their sonic experiences. With a commitment to quality and innovation, we carefully select and offer an exclusive range of audio solutions. Join us on a journey to discover the true essence of audio excellence."</div>
 
                 </div>
 
@@ -47,22 +44,22 @@ const Footer = () => {
 
                     <div className="categories">
                         <div className="title">Categories</div>
-                        <span className="text">Headphones</span>
-                        <span className="text">Smart Watches</span>
-                        <span className="text">Bluetooth Speakers</span>
-                        <span className="text">Wireless Earbuds</span>
-                        <span className="text">Home Theatre</span>
-                        <span className="text">Projectors</span>
+                        <div className="text">Headphones</div>
+                        <div className="text">Smart Watches</div>
+                        <div className="text">Bluetooth Speakers</div>
+                        <div className="text">Wireless Earbuds</div>
+                        <div className="text">Home Theatre</div>
+                        <div className="text">Projectors</div>
                     </div>
 
                     <div className="pages">
                         <div className="title">Pages</div>
-                        <span className="text">Home</span>
-                        <span className="text">About</span>
-                        <span className="text">Privacy Policy</span>
-                        <span className="text">Returns</span>
-                        <span className="text">Terms & Conditions</span>
-                        <span className="text">Contact Us</span>
+                        <div className="text">Home</div>
+                        <div className="text">About</div>
+                        <div className="text">Privacy Policy</div>
+                        <div className="text">Returns</div>
+                        <div className="text">Terms & Conditions</div>
+                        <div className="text">Contact Us</div>
                     </div>
 
                 </div>
@@ -85,5 +82,3 @@ const Footer = () => {
 }
 
 export default Footer;
-
-// style={{margin : "0.75% 0 0"}}

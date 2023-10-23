@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Email, Password } from '@mui/icons-material';
+import { toast } from 'react-toastify';
 
 function Copyright(props) {
     return (
@@ -54,14 +55,14 @@ export default function SignUp() {
             });
 
             if (response.status === 201) {
-                alert("Registration Successful");
+                toast.success("Congratulations! You've successfully signed up.");
                 setRedirect(true);
             } else {
-                alert("Registration Failed");
+                toast.error("An error occurred during registration, Please Try Again!");
             }
         } catch (error) {
             console.error("Error:", error);
-            alert("An error occurred during registration");
+            toast.error("An error occurred during registration, Please Try Again!");
         }
 
     }
@@ -161,86 +162,3 @@ export default function SignUp() {
         </ThemeProvider>
     );
 }
-
-
-
-// import React, { useState } from 'react';
-// import { withRouter } from 'react-router-dom';
-// import Avatar from '@mui/material/Avatar';
-// import Button from '@mui/material/Button';
-// import CssBaseline from '@mui/material/CssBaseline';
-// import TextField from '@mui/material/TextField';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
-// import Link from '@mui/material/Link';
-// import Grid from '@mui/material/Grid';
-// import Box from '@mui/material/Box';
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-// import Typography from '@mui/material/Typography';
-// import Container from '@mui/material/Container';
-// import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-// function SignUp(props) {
-//     const [registrationError, setRegistrationError] = useState('');
-
-//     async function handleSubmit(event) {
-//         event.preventDefault();
-//         const data = new FormData(event.currentTarget);
-
-//         const fName = data.get('firstName');
-//         const lName = data.get('lastName');
-//         const email = data.get('email');
-//         const password = data.get('password');
-
-//         try {
-//             const response = await fetch('http://localhost:4000/register', {
-//                 method: 'POST',
-//                 headers: { 'Content-Type': 'application/json' },
-//                 body: JSON.stringify({ fName, lName, email, password }),
-//             });
-
-//             if (response.status === 201) {
-//                 alert('Registration Successful');
-//                 props.history.push('/signin'); // Redirect to "/signin" page
-//             } else {
-//                 setRegistrationError('Registration Failed');
-//             }
-//         } catch (error) {
-//             console.error('Error:', error);
-//             setRegistrationError('An error occurred during registration');
-//         }
-//     }
-
-//     const defaultTheme = createTheme();
-
-//     return (
-//         <ThemeProvider theme={defaultTheme}>
-//             <Container component="main" maxWidth="xs">
-//                 <CssBaseline />
-//                 <Box
-//                     sx={{
-//                         marginTop: 8,
-//                         display: 'flex',
-//                         flexDirection: 'column',
-//                         alignItems: 'center',
-//                     }}
-//                 >
-//                     <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-//                         <LockOutlinedIcon />
-//                     </Avatar>
-//                     <Typography component="h1" variant="h5">
-//                         Sign up
-//                     </Typography>
-//                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-//                         {/* Rest of your form code */}
-//                         <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-//                             Sign Up
-//                         </Button>
-//                     </Box>
-//                 </Box>
-//             </Container>
-//         </ThemeProvider>
-//     );
-// }
-
-// export default withRouter(SignUp);
