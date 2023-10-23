@@ -9,7 +9,7 @@ const Banner = () => {
 
                 <div className="banner-text">
                     <h1>SALES</h1>
-                    <p>"Experience audio perfection at AudioVerse. Explore a curated selection of high-quality audio products, from headphones to speakers.Elevate your sound journey with us."</p>
+                    <p>Experience audio perfection at AudioVerse. Explore a curated selection of high-quality audio products, from headphones to speakers.Elevate your sound journey with us.</p>
                 </div>
 
                 <div className="banner-tags">
