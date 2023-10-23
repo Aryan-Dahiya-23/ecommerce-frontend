@@ -13,7 +13,7 @@ import {
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { toast } from "react-toastify";
 
 const SingleProduct = (props) => {
 
@@ -79,7 +79,7 @@ const SingleProduct = (props) => {
 
     const handleCart = () => {
         if (!loggedIn) {
-            return alert("Login First!");
+            return toast.error("Please Login First!");
         }
 
         const product = products.find((product) => product._id === currentId);
@@ -98,18 +98,18 @@ const SingleProduct = (props) => {
                 cart: [...user.cart, newCartItem],
             };
             setUser(updatedUser);
-            alert("Item Added To The Cart");
+            toast.success("Item Added To The Cart");
         } else {
             const updatedCart = user.cart.map((item) => {
                 if (item._id === currentId) {
                     if (quantityCounter !== 0) {
-                        alert("Item Updated");
+                        toast.success("Cart Updated");
                         return {
                             ...item,
                             quantity: quantityCounter,
                         };
                     } else {
-                        alert("Item Removed From the Cart");
+                        toast.success("Item Removed From the Cart");
                         return null;
                     }
                 }
@@ -123,7 +123,7 @@ const SingleProduct = (props) => {
 
     const handleWishlist = () => {
         if (!loggedIn) {
-            return alert("Login First!");
+            return toast.error("Please Login First!");
         }
 
         setUser((prevUser) => {
@@ -132,11 +132,11 @@ const SingleProduct = (props) => {
                 : [...prevUser.wishlist, currentId];
 
             const alertMessage = prevUser.wishlist.includes(currentId)
-                ? 'Product Removed From Wishlist'
-                : 'Product Added To Wishlist';
+                ? 'Product Removed From the Wishlist'
+                : 'Product Added To the Wishlist';
 
             if (!isAlertDisplayed) {
-                alert(alertMessage);
+                toast.success(alertMessage);
                 setAlertDisplayed(true);
             }
 

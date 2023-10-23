@@ -9,11 +9,11 @@ const Banner = () => {
 
                 <div className="banner-text">
                     <h1>SALES</h1>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit Voluptate minima eius beatae eos corruptil siue et gen heneq hibe kom cheb.</p>
+                    <p>"Experience audio perfection at AudioVerse. Explore a curated selection of high-quality audio products, from headphones to speakers.Elevate your sound journey with us."</p>
                 </div>
 
                 <div className="banner-tags">
-                    <a href="/" style={{color: "white"}}>Read More</a>
+                    <a href="/" style={{ color: "white" }}>Read More</a>
                     <a href="/" style={{ backgroundColor: "white", color: "black" }}>Shop Now</a>
                 </div>
 

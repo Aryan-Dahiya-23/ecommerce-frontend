@@ -9,11 +9,26 @@ import SingleProductPage from "pages/SingleProductPage";
 import OrdersPage from 'pages/OrdersPage';
 import SuccessfulPage from 'pages/SuccessfulPage';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const App = () => {
 
   return (
     <AuthProvider>
       <BrowserRouter>
+      <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />

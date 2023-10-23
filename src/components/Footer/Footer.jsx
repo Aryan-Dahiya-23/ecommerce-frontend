@@ -12,10 +12,7 @@ const Footer = () => {
                 <div className="about">
 
                     <div className="title">About</div>
-                    <div className="text"> Voluptatem accusantium doloremque laudantium, totam rem
-                        aperiam, eaque ipsa quae ab illo inventore veritatis et
-                        quasi architecto beatae vitae dicta sunt explicabo eaque
-                        ipsa quae ab illo.</div>
+                    <div className="text">"At AudioVerse, we're passionate about sound. Our mission is to provide audio enthusiasts with top-tier products that enhance their sonic experiences. With a commitment to quality and innovation, we carefully select and offer an exclusive range of audio solutions. Join us on a journey to discover the true essence of audio excellence."</div>
 
                 </div>
 
@@ -84,6 +81,6 @@ const Footer = () => {
     );
 }
 
-export default Footer;
 
-// style={{margin : "0.75% 0 0"}}
+export default Footer;
+======

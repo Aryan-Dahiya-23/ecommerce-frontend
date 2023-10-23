@@ -16,6 +16,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import { toast } from "react-toastify";
+
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -28,8 +30,6 @@ function Copyright(props) {
         </Typography>
     );
 }
-
-// TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
@@ -64,53 +64,24 @@ export default function SignIn() {
     });
 
     if (response.ok) {
-        const responseData = await response.json(); // Parse the response JSON
+        const responseData = await response.json();
         console.log(responseData);
-        const token = responseData.token; // Assuming your API returns a "token" field
+        const token = responseData.token;
 
-        // Set the token as a cookie
-        setCookie('token', token, 7); // Set the token cookie to expire in 7 days
+        setCookie('token', token, 7);
 
         setUserEmail(email);
         setLoggedIn(true);
         setRedirect(true);
+        toast.success("Welcome back! You've successfully signed in.");
     } else {
-        alert('Wrong credentials');
+        toast.error('Wrong credentials');
     }
 }
-
-// Function to set a cookie
-
-
-    // async function handleSubmit(event) {
-    //     event.preventDefault();
-
-    //     const data = new FormData(event.currentTarget);
-
-    //     const email = data.get('email');
-    //     const password = data.get('password');
-
-    //     const response = await fetch(`${process.env.REACT_APP_URL}/login`, {
-    //         method: 'POST',
-    //         body: JSON.stringify({ email, password }),
-    //         headers: { "Content-Type": "application/json" },
-    //         credentials: "include",
-    //     });
-
-    //     if (response.ok) {
-    //         // console.log(response);
-    //         setUserEmail(email);
-    //         setLoggedIn(true);
-    //         setRedirect(true);
-    //     } else {
-    //         alert('wrong credentials');
-    //     }
-    // }
 
     useEffect(() => {
         async function fetchData() {
             try {
-                // const response = await fetch(`http://localhost:4000/user?email=${userEmail}`, {
                 const response = await fetch(`${process.env.REACT_APP_URL}/user?email=${userEmail}`, {
 
                     method: 'GET',
@@ -125,10 +96,10 @@ export default function SignIn() {
                     // console.log(data.user);
                     setUser(data.user);
                 } else {
-                    alert('Error occurred while fetching data');
+                    toast.error('Error occurred while fetching data');
                 }
             } catch (error) {
-                alert('Error occurred while fetching data');
+                toast.error('Error occurred while fetching data');
             }
         }
 
