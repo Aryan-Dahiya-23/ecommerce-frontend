@@ -58,7 +58,6 @@ const Cart = () => {
         setCart(false);
     }
 
-
     const getItem = (productId) => {
         setCurrentId(productId)
         navigate(`/product/${productId}`);
@@ -100,6 +99,7 @@ const Cart = () => {
     };
 
     const removeItem = (productId) => {
+        toast.success("Item Removed From the Cart");
         const updatedCart = user.cart.filter(item => item._id !== productId);
         const updatedUser = { ...user, cart: updatedCart };
         setUser(updatedUser);

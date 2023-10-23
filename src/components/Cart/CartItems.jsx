@@ -14,7 +14,6 @@ const CartItems = (props) => {
 
             <img src={process.env.REACT_APP_URL + "/" + imageUrl} alt="Product" onClick={props.getItem} />
 
-
             <div className="item-details">
 
                 <div className="item-title" onClick={props.getItem}>{title}</div>
