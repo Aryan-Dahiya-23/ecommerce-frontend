@@ -16,9 +16,9 @@ const OrderItems = (props) => {
         return description;
     };
 
-    const getItem = (id) => {
-        navigate("product/:id");
-    }
+   const getItem = (id) => {
+      navigate("/product/" + id);
+   }
 
     return (
         <div className="order-item-container">
@@ -58,7 +58,7 @@ const OrderItems = (props) => {
                     <div className="order-item-bottom-container">
 
                         <div className="order-item-details" onClick={() => getItem(product._id)}>
-                            <img src={"https://ecommerce-backend-4zjj.onrender.com/" + product.imageUrl} alt="Product" />
+                            <img src={process.env.REACT_APP_URL + "/" + product.imageUrl} alt="Product" />
 
                             <div className="item-details-description">
                                 <div className="order-details-title">{product.name}</div>
