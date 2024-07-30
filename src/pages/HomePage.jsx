@@ -9,44 +9,40 @@ import LoadingIndicator from "components/UI/LoadingIndicator.jsx";
 import { AuthContext } from "../contexts/AuthContext.jsx";
 
 const HomePage = () => {
+  console.log(process.env.REACT_APP_URL);
 
-    console.log(process.env.REACT_APP_URL);
+  const { products, setProducts } = useContext(AuthContext);
 
-    const { products, setProducts } = useContext(AuthContext);
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
-    useEffect(() => {
-        fetchProducts();
-    }, []);
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_URL}/products`);
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.log("Error fetching products:", error);
+    }
+  };
 
-    const fetchProducts = async () => {
-        try {
-            const response = await fetch(`${process.env.REACT_APP_URL}/products`);
-            const data = await response.json();
-            setProducts(data);
-        } catch (error) {
-            console.log("Error fetching products:", error);
-        }
-    };
+  return (
+    <div>
+      <Header />
+      <Banner />
+      <Category />
 
-    return (
-        <div>
-            <Header />
-            <Banner />
-            <Category />
+      {products.length === 0 ? (
+        <LoadingIndicator />
+      ) : (
+        <Product products={products} />
+      )}
 
-            {products.length === 0 ? (
-                <LoadingIndicator />
-            ) : (
-                <Product products={products} />
-            )}
-
-            <Newsletter />
-            <Footer />
-        </div>
-    );
-
-}
+      <Newsletter />
+      <Footer />
+    </div>
+  );
+};
 
 export default HomePage;
-
-
